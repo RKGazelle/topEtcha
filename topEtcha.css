@@ -14,7 +14,20 @@ body {
 }
 
 .container {
-  background-color: papayawhip;
-  width: 750px;
-  height: 750px;
+  min-width: 750px;
+  min-height: 750px;
+  max-width: 750px;
+  max-height: 750px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+div {
+  background-color: aqua;
+  border: 1px dotted black;
+}
+
+div:hover {
+  background-color: red;
 }
