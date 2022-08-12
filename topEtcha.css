@@ -1,3 +1,9 @@
+:root {
+  --size: 16;
+  --baseColor: aqua;
+  --changeColor: red;
+}
+
 h1 {
   text-align: center;
   font-size: 56px;
@@ -13,17 +19,40 @@ body {
   align-items: center;
 }
 
-.container {
+.grid {
   min-width: 700px;
   min-height: 700px;
   max-width: 700px;
   max-height: 700px;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(var(--size), 1fr);
+  grid-template-rows: repeat(var(--size), 1fr);
 }
 
-div {
-  background-color: aqua;
+.container {
+  background-color: pink;
+  display: flex;
+
+}
+
+.buttons1 {
+  background-color: forestgreen;
+}
+
+.buttons2 {
+  background-color: orange;
+}
+
+.gridDiv {
+  background-color: var(--baseColor);
   border: 1px dotted black;
+}
+
+button {
+  padding: 20px;
+  margin: 20px;
+  min-width: 125px;
+  color: steelblue;
+  border: 3px solid darkslategrey;
+  background-color: white;
 }
