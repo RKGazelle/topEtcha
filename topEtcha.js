@@ -4,7 +4,7 @@ let gridDivs = [];
 let input = 16;
 let gridSize = input;
 let baseColor = 'white';
-let changeColor = 'red';
+let changeColor = 'black';
 
 drawGrid(input);
 
@@ -18,12 +18,27 @@ gridButton.addEventListener('click', function () {
   drawGrid(input);
 });
 
+//Defining the 'Clear Canvas' button
+
 const clearCanvas = document.querySelector(".clearColor")
-clearCanvas.addEventListener('click', function() {
-  gridDivs.forEach((grid) => {
-    grid.style.cssText = `background: ${baseColor}`;
-  })
+clearCanvas.addEventListener('click', clearBGC);
+
+//Defining the Color Picker inputs
+
+const bgcButton = document.querySelector("#bgc");
+const ptButton = document.querySelector("#paintc");
+
+bgcButton.addEventListener('change', function() {
+  baseColor = this.value;
+  clearBGC();
 });
+
+ptButton.addEventListener('change', function() {
+  changeColor = this.value;
+});
+
+// Functions 
+
 function gridPrompt() {
   input = prompt('Input grid size:');
 
@@ -46,7 +61,7 @@ function drawGrid(size) {
     gridDivs[i].addEventListener('mouseover', () => {
       gridDivs[i].style.cssText = `background: ${changeColor}`;
       //document.documentElement.style.setProperty('--baseColor', 'red');
-    })
+    });
     grid.appendChild(gridDivs[i]);
   }
 
@@ -61,6 +76,10 @@ function clearGrid() {
   return "Grid cleared!";
 }
 
-
+function clearBGC() {
+  gridDivs.forEach((grid) => {
+    grid.style.cssText = `background: ${baseColor}`;
+  });
+}
 
 
