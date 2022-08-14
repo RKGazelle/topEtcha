@@ -1,6 +1,6 @@
 :root {
   --size: 16;
-  --baseColor: aqua;
+  --baseColor: white;
   --changeColor: red;
 }
 
@@ -30,22 +30,37 @@ body {
 }
 
 .container {
-  background-color: pink;
+  /* background-color: lightblue; */
   display: flex;
 
 }
 
 .buttons1 {
-  background-color: forestgreen;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 175px;
+  color: white;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 100;
+  font-size: 16px;
 }
 
 .buttons2 {
-  background-color: orange;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 175px;
+  color: darkslategray;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .gridDiv {
-  background-color: var(--baseColor);
-  border: 1px dotted black;
+  /* background-color: var(--baseColor); */
+  background-color: white;
+  border: .5px solid lightgray;
 }
 
 button {
@@ -55,4 +70,15 @@ button {
   color: steelblue;
   border: 3px solid darkslategrey;
   background-color: white;
+}
+
+label {
+  margin-bottom: 15px;
+  border-bottom: solid 1px white;
+  margin: 10px;
+}
+
+input {
+  width: 100px;
+  height: 50px;
 }

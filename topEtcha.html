@@ -12,11 +12,15 @@
   <h1>TOP Etch-A-Sketch</h1>
   <div class="container">
     <div class="buttons1">
-      <button>Test</button>
+      <button class = "gridSize">Set Grid Size</button>
+      <button class = "clearColor">Clear Canvas</button>
     </div>
     <div class="grid"></div>
     <div class="buttons2">
-      <button class = "takeInput">Set Grid Size</button>
+      <label for="base">Background Color</label>
+      <input id="bgc" type="color" name="base" value="#FFFFFF">
+      <label for="paint">Paint Color</label>
+      <input id="paintc" type="color" name="paint" value="#000000">
     </div>
   </div>
 </body>
