@@ -16,6 +16,7 @@ gridButton.addEventListener('click', function () {
   gridPrompt();
   document.documentElement.style.setProperty('--size', input);
   drawGrid(input);
+  clearBGC();
 });
 
 //Defining the 'Clear Canvas' button
@@ -29,12 +30,32 @@ const bgcButton = document.querySelector("#bgc");
 const ptButton = document.querySelector("#paintc");
 
 bgcButton.addEventListener('change', function() {
+  // gridDivs.forEach((grid) => {
+  //   if(grid.style.cssText == `background: ${baseColor}`) {
+  //     baseColor = this.value;
+  //     grid.style.cssText = `backgound: ${baseColor}`;
+  //   }
+  // });
   baseColor = this.value;
   clearBGC();
 });
 
 ptButton.addEventListener('change', function() {
   changeColor = this.value;
+});
+
+//Defining the random color checkbox
+
+const randCheck = document.querySelector("#randomColor");
+
+randCheck.addEventListener('change', (e) => {
+  if (e.target.checked) {
+    changeColor = randRGB();
+
+    // ptButton.setAttribute('disabled', true);
+  } else if (e.target.unchecked) {
+    // ptButton.setAttribute('disabled', false);
+  }
 });
 
 // Functions 
@@ -60,7 +81,6 @@ function drawGrid(size) {
     gridDivs[i].classList.add("gridDiv");
     gridDivs[i].addEventListener('mouseover', () => {
       gridDivs[i].style.cssText = `background: ${changeColor}`;
-      //document.documentElement.style.setProperty('--baseColor', 'red');
     });
     grid.appendChild(gridDivs[i]);
   }
@@ -82,4 +102,11 @@ function clearBGC() {
   });
 }
 
+function randRGB() {
+  let r = (Math.random() * (255 - 0) + 0).toFixed(2);
+  let g = (Math.random() * (255 - 0) + 0).toFixed(2);
+  let b = (Math.random() * (255 - 0) + 0).toFixed(2);
+  return `rgb(${r},${g},${b})`;
+}
 
+console.log(randRGB());
