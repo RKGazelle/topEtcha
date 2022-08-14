@@ -50,13 +50,22 @@ const randCheck = document.querySelector("#randomColor");
 
 randCheck.addEventListener('change', (e) => {
   if (e.target.checked) {
-    changeColor = randRGB();
-
-    // ptButton.setAttribute('disabled', true);
-  } else if (e.target.unchecked) {
-    // ptButton.setAttribute('disabled', false);
+    gridDivs.forEach((grid) => {
+      grid.addEventListener('mouseover', () => {
+        grid.style.cssText = `background: ${randRGB()}`;
+      });
+    });
+    // document.getElementById("paintc").disabled=true;
+  } else {
+    console.log("Unchecked");
+    gridDivs.forEach((grid) => {
+      grid.addEventListener('mouseover', () => {
+        grid.style.cssText = `background: ${changeColor}`;
+      });
+    });
   }
 });
+
 
 // Functions 
 
